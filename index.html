@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Wirtschaftsdaten Österreich</title>
+    <script src="Scripts/jquery-2.1.0.js"></script>
+    <script src="Scripts/d3.v3.js"></script>
+    <script src="Scripts/openVienna.js"></script>
+    <style type="text/css">
+        body {
+            background: linear-gradient(lightblue, white);
+            background-repeat: repeat-x;
+            text-align: center;
+            font-family: sans-serif;
+        }
+
+        h1 {
+            font-size: xx-large;
+            color: darkblue;
+            text-shadow: -1pt 0 white, 0 1pt white, 1pt 0 white, 0 -1pt white;
+        }
+
+        ul li {
+            display: inline;
+            cursor: pointer;
+            font-size: large;
+            color: darkblue;
+            text-shadow: -1px 0 lightblue, 0 1px lightblue, 1px 0 lightblue, 0 -1px lightblue;
+
+        }
+
+        a {
+            padding: 5pt;
+            /* First we need to help some browsers along for this to work.
+            Just because a vendor prefix is there, doesn't mean it will
+            work in a browser made by that vendor either, it's just for
+            future-proofing purposes I guess. */
+            -o-transition:.5s;
+            -ms-transition:.5s;
+            -moz-transition:.5s;
+            -webkit-transition:.5s;
+            /* ...and now for the proper property */
+        }
+
+            a:hover {
+                color: white;
+            }
+
+        #main {
+            min-height: 100%;
+        }
+
+
+        #footer {
+            font-size: small;
+            text-align: right;
+        }
+
+        .lbl {
+            text-anchor: middle;
+            font-size: large;
+            text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+            
+            opacity: 0;
+        }
+
+        path {
+            fill: white;
+            fill-opacity: .8;
+            stroke: black;
+            stroke-width: 1px;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="main">
+        <h1>OpenData Wirtschaftsfakten</h1>
+        <ul>
+            <li><a onclick="document._ov.go('Population11')">Population '11</a> | </li>
+            <li><a onclick="document._ov.go('BRP10')">Brutto-Regionalprodukt '10</a> | </li>
+            <li><a onclick="document._ov.go('PerPersonIncome10')">Einkommen p.P. '10</a> | </li>
+            <li><a onclick="document._ov.go('ResearchQuota09')">Forschungsquote '09</a> | </li>
+            <li><a onclick="document._ov.go('Arbeitslos12')">Arbeitslos '12</a></li>
+        </ul>
+        <div id="map"></div>
+        <div id="footer">
+            &copy; 2014, Manuel Mario Bauer; <br />
+            Data &copy; Statistik Austria, Cooperation OGD Österreich;
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+            document._ov = new oV();
+            document._ov.init();
+        });
+    </script>
+</body>
+</html>
